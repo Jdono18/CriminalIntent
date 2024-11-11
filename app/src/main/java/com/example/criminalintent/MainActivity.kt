@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)  // retrieves CrimeFragment from FragmentManager by it's container view id
 
         if (currentFragment == null) {
-            val fragment = CrimeFragment()
+            val fragment = CrimeListFragment.newInstance()
             supportFragmentManager  // calls the activities FragmentManager
                 .beginTransaction()  // creates and returns an instance of FragmentTransaction
                 .add(R.id.fragment_container, fragment)  // creates and commits a fragment transaction.  Container View ID = fragment_container which is the resourceID of FrameLayout from activity_main.xml
