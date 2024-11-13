@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 import java.util.Date
 import java.util.UUID
 
+
 @Entity
 data class Crime(@PrimaryKey val id: UUID = UUID.randomUUID(),  // data class that holds the listed variables and data types
                  var title: String = "",
