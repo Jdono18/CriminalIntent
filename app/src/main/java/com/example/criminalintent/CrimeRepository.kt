@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.example.criminalintent.database.CrimeDatabase
+import com.example.criminalintent.database.migration_1_2
 import java.util.UUID
 import java.util.concurrent.Executors
 
@@ -16,7 +17,8 @@ class CrimeRepository private constructor(context: Context) { // marks the const
         context.applicationContext,  // context object for accessing filesystem
         CrimeDatabase::class.java,  // database class for room to create
         DATABASE_NAME  // name of database for room to create
-    ).build()
+    ).addMigrations(migration_1_2)
+        .build()
 
     private val crimeDao = database.crimeDao()
     private val executor = Executors.newSingleThreadExecutor()
